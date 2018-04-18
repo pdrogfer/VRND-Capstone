@@ -9,6 +9,8 @@ public class GameLogic : MonoBehaviour {
 	public GameObject gui_start, gui_restart;
 	public GameObject waypoint_start, waypoint_1, waypoint_2;
 
+	private AudioSource windAudio;
+
 	// Use this for initialization
 	void Start () {
 
@@ -39,5 +41,8 @@ public class GameLogic : MonoBehaviour {
 				"easetype", "linear"
 			)
 		);
+
+		windAudio = waypoint_1.audio;
+		windAudio.Play ();
 	} 
 }
