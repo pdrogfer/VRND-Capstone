@@ -42,7 +42,21 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-		windAudio = waypoint_1.audio;
+		windAudio = waypoint_1.GetComponent<AudioSource>();
 		windAudio.Play ();
 	} 
+
+	public void controlNarration1() {
+
+		AudioSource narration = GetComponent<AudioSource> ();
+
+		if(GetComponent<AudioSource> ().isPlaying) {
+
+			GetComponent<AudioSource> ().Stop ();
+		}
+		else {
+
+			GetComponent<AudioSource> ().Play ();
+		}
+	}
 }
