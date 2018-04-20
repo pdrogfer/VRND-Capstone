@@ -9,6 +9,8 @@ public class GameLogic : MonoBehaviour {
 	public GameObject gui_start, gui_restart;
 	public GameObject waypoint_start, waypoint_1, waypoint_2;
 
+	private AudioSource windAudio;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,6 +28,24 @@ public class GameLogic : MonoBehaviour {
 		
 	}
 
+	public void restartTour() {
+
+		// Disable the start UI.
+		gui_start.SetActive(true);
+
+		// Move the player to position 1.
+		iTween.MoveTo(player,
+			iTween.Hash(
+				"position", waypoint_start.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+
+//		windAudio = waypoint_1.GetComponent<AudioSource>();
+//		windAudio.Play ();
+	}
+
 	public void startTour() {
 
 		// Disable the start UI.
@@ -39,5 +59,34 @@ public class GameLogic : MonoBehaviour {
 				"easetype", "linear"
 			)
 		);
-	} 
+
+//		windAudio = waypoint_1.GetComponent<AudioSource>();
+//		windAudio.Play ();
+	}
+
+	public void gotoStation2() {
+
+		// Move the player to position 2.
+		iTween.MoveTo(player,
+			iTween.Hash(
+				"position", waypoint_2.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+	}
+
+	public void controlNarration1() {
+
+		AudioSource narration = GetComponent<AudioSource> ();
+
+		if(GetComponent<AudioSource> ().isPlaying) {
+
+			GetComponent<AudioSource> ().Stop ();
+		}
+		else {
+
+			GetComponent<AudioSource> ().Play ();
+		}
+	}
 }
