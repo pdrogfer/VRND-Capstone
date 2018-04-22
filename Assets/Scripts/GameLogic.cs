@@ -26,7 +26,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 
-		showOnlyThisPanel (gui_start);
+		hideAllGuiPanels ();
+		gui_start.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -50,6 +51,8 @@ public class GameLogic : MonoBehaviour {
 
 	public void gotoStation1() {
 
+		gui_start.SetActive (false);
+
 		// Move the player to position 1.
 		iTween.MoveTo(player,
 			iTween.Hash(
@@ -62,7 +65,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 
-		showOnlyThisPanel (gui_point_1);
+		hideAllGuiPanels ();
+		gui_point_1.SetActive (true);
 	}
 
 	public void gotoStation2() {
@@ -79,7 +83,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (true);
 		showPinesSmallAndWell (false);
 
-		showOnlyThisPanel (gui_point_2);
+		hideAllGuiPanels ();
+		gui_point_2.SetActive (true);
 	}
 
 	public void gotoStation3() {
@@ -96,7 +101,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (true);
 
-		showOnlyThisPanel (gui_point_3);
+		hideAllGuiPanels ();
+		gui_point_3.SetActive (true);
 	}
 
 	public void gotoStation4() {
@@ -113,7 +119,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 
-		showOnlyThisPanel (gui_point_4);
+		hideAllGuiPanels ();
+		gui_point_4.SetActive (true);
 	}
 
 	public void controlNarration1() {
@@ -140,15 +147,14 @@ public class GameLogic : MonoBehaviour {
 		pines_small_and_well.SetActive (visibility);
 	}
 
-	private void showOnlyThisPanel(GameObject panelToShow) {
+	private void hideAllGuiPanels() {
 
-		gui_start.SetActive (false);
-		gui_restart.SetActive (false);
-		gui_point_1.SetActive (false);
-		gui_point_2.SetActive (false);
-		gui_point_3.SetActive (false);
-		gui_point_4.SetActive (false);
-
-		panelToShow.SetActive (true);
+//		gui_start.SetActive (false);
+//		gui_restart.SetActive (false);
+//		gui_point_1.SetActive (false);
+//		gui_point_2.SetActive (false);
+//		gui_point_3.SetActive (false);
+//		gui_point_4.SetActive (false);
 	}
+
 }
