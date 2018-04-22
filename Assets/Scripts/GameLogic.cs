@@ -7,7 +7,9 @@ public class GameLogic : MonoBehaviour {
 	public GameObject player;
 	public GameObject eventSystem;
 	public GameObject gui_start, gui_restart;
-	public GameObject waypoint_start, waypoint_1, waypoint_2;
+	public GameObject waypoint_start, waypoint_1, waypoint_2, waypoint_3, waypoint_4;
+	public GameObject fence;
+	public GameObject pines_small_and_well;
 
 	private AudioSource windAudio;
 
@@ -20,6 +22,9 @@ public class GameLogic : MonoBehaviour {
 
 		// Move the 'player' to the 'startPoint' position.
 		player.transform.position = waypoint_start.transform.position;
+
+		showFence (false);
+		showPinesSmallAndWell (false);
 		
 	}
 	
@@ -42,11 +47,11 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-//		windAudio = waypoint_1.GetComponent<AudioSource>();
-//		windAudio.Play ();
+		showFence (false);
+		showPinesSmallAndWell (false);
 	}
 
-	public void startTour() {
+	public void gotoStation1() {
 
 		// Disable the start UI.
 		gui_start.SetActive(false);
@@ -60,8 +65,8 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-//		windAudio = waypoint_1.GetComponent<AudioSource>();
-//		windAudio.Play ();
+		showFence (false);
+		showPinesSmallAndWell (false);
 	}
 
 	public void gotoStation2() {
@@ -74,6 +79,39 @@ public class GameLogic : MonoBehaviour {
 				"easetype", "linear"
 			)
 		);
+
+		showFence (true);
+		showPinesSmallAndWell (false);
+	}
+
+	public void gotoStation3() {
+
+		// Move the player to position 3.
+		iTween.MoveTo(player,
+			iTween.Hash(
+				"position", waypoint_3.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+
+		showFence (false);
+		showPinesSmallAndWell (true);
+	}
+
+	public void gotoStation4() {
+
+		// Move the player to position 4.
+		iTween.MoveTo (player,
+			iTween.Hash (
+				"position", waypoint_4.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+
+		showFence (false);
+		showPinesSmallAndWell (false);
 	}
 
 	public void controlNarration1() {
@@ -88,5 +126,15 @@ public class GameLogic : MonoBehaviour {
 
 			GetComponent<AudioSource> ().Play ();
 		}
+	}
+
+	private void showFence(bool visibility) {
+
+		fence.SetActive (visibility);
+	}
+
+	private void showPinesSmallAndWell(bool visibility) {
+
+		pines_small_and_well.SetActive (visibility);
 	}
 }
