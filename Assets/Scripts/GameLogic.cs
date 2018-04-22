@@ -6,7 +6,7 @@ public class GameLogic : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject eventSystem;
-	public GameObject gui_start, gui_restart;
+	public GameObject gui_start, gui_restart, gui_point_1, gui_point_2, gui_point_3, gui_point_4;
 	public GameObject waypoint_start, waypoint_1, waypoint_2, waypoint_3, waypoint_4;
 	public GameObject fence;
 	public GameObject pines_small_and_well;
@@ -25,7 +25,8 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
-		
+
+		showOnlyThisPanel (gui_start);
 	}
 	
 	// Update is called once per frame
@@ -35,10 +36,7 @@ public class GameLogic : MonoBehaviour {
 
 	public void restartTour() {
 
-		// Disable the start UI.
-		gui_start.SetActive(true);
-
-		// Move the player to position 1.
+		// Move the player to position start.
 		iTween.MoveTo(player,
 			iTween.Hash(
 				"position", waypoint_start.transform.position,
@@ -47,14 +45,10 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-		showFence (false);
-		showPinesSmallAndWell (false);
+		Start ();
 	}
 
 	public void gotoStation1() {
-
-		// Disable the start UI.
-		gui_start.SetActive(false);
 
 		// Move the player to position 1.
 		iTween.MoveTo(player,
@@ -67,6 +61,8 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
+
+		showOnlyThisPanel (gui_point_1);
 	}
 
 	public void gotoStation2() {
@@ -82,6 +78,8 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (true);
 		showPinesSmallAndWell (false);
+
+		showOnlyThisPanel (gui_point_2);
 	}
 
 	public void gotoStation3() {
@@ -97,6 +95,8 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (true);
+
+		showOnlyThisPanel (gui_point_3);
 	}
 
 	public void gotoStation4() {
@@ -112,6 +112,8 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
+
+		showOnlyThisPanel (gui_point_4);
 	}
 
 	public void controlNarration1() {
@@ -136,5 +138,17 @@ public class GameLogic : MonoBehaviour {
 	private void showPinesSmallAndWell(bool visibility) {
 
 		pines_small_and_well.SetActive (visibility);
+	}
+
+	private void showOnlyThisPanel(GameObject panelToShow) {
+
+		gui_start.SetActive (false);
+		gui_restart.SetActive (false);
+		gui_point_1.SetActive (false);
+		gui_point_2.SetActive (false);
+		gui_point_3.SetActive (false);
+		gui_point_4.SetActive (false);
+
+		panelToShow.SetActive (true);
 	}
 }
