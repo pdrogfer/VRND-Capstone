@@ -6,8 +6,10 @@ public class GameLogic : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject eventSystem;
-	public GameObject gui_start, gui_restart;
-	public GameObject waypoint_start, waypoint_1, waypoint_2;
+	public GameObject gui_start, gui_restart, gui_point_1, gui_point_2, gui_point_3, gui_point_4;
+	public GameObject waypoint_start, waypoint_1, waypoint_2, waypoint_3, waypoint_4;
+	public GameObject fence;
+	public GameObject pines_small_and_well;
 
 	private AudioSource windAudio;
 
@@ -20,7 +22,12 @@ public class GameLogic : MonoBehaviour {
 
 		// Move the 'player' to the 'startPoint' position.
 		player.transform.position = waypoint_start.transform.position;
-		
+
+		showFence (false);
+		showPinesSmallAndWell (false);
+
+		hideAllGuiPanels ();
+		gui_start.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -30,10 +37,7 @@ public class GameLogic : MonoBehaviour {
 
 	public void restartTour() {
 
-		// Disable the start UI.
-		gui_start.SetActive(true);
-
-		// Move the player to position 1.
+		// Move the player to position start.
 		iTween.MoveTo(player,
 			iTween.Hash(
 				"position", waypoint_start.transform.position,
@@ -42,14 +46,12 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-//		windAudio = waypoint_1.GetComponent<AudioSource>();
-//		windAudio.Play ();
+		Start ();
 	}
 
-	public void startTour() {
+	public void gotoStation1() {
 
-		// Disable the start UI.
-		gui_start.SetActive(false);
+		gui_start.SetActive (false);
 
 		// Move the player to position 1.
 		iTween.MoveTo(player,
@@ -60,8 +62,11 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-//		windAudio = waypoint_1.GetComponent<AudioSource>();
-//		windAudio.Play ();
+		showFence (false);
+		showPinesSmallAndWell (false);
+
+		hideAllGuiPanels ();
+		gui_point_1.SetActive (true);
 	}
 
 	public void gotoStation2() {
@@ -74,6 +79,48 @@ public class GameLogic : MonoBehaviour {
 				"easetype", "linear"
 			)
 		);
+
+		showFence (true);
+		showPinesSmallAndWell (false);
+
+		hideAllGuiPanels ();
+		gui_point_2.SetActive (true);
+	}
+
+	public void gotoStation3() {
+
+		// Move the player to position 3.
+		iTween.MoveTo(player,
+			iTween.Hash(
+				"position", waypoint_3.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+
+		showFence (false);
+		showPinesSmallAndWell (true);
+
+		hideAllGuiPanels ();
+		gui_point_3.SetActive (true);
+	}
+
+	public void gotoStation4() {
+
+		// Move the player to position 4.
+		iTween.MoveTo (player,
+			iTween.Hash (
+				"position", waypoint_4.transform.position,
+				"time", 2,
+				"easetype", "linear"
+			)
+		);
+
+		showFence (false);
+		showPinesSmallAndWell (false);
+
+		hideAllGuiPanels ();
+		gui_point_4.SetActive (true);
 	}
 
 	public void controlNarration1() {
@@ -89,4 +136,25 @@ public class GameLogic : MonoBehaviour {
 			GetComponent<AudioSource> ().Play ();
 		}
 	}
+
+	private void showFence(bool visibility) {
+
+		fence.SetActive (visibility);
+	}
+
+	private void showPinesSmallAndWell(bool visibility) {
+
+		pines_small_and_well.SetActive (visibility);
+	}
+
+	private void hideAllGuiPanels() {
+
+//		gui_start.SetActive (false);
+//		gui_restart.SetActive (false);
+//		gui_point_1.SetActive (false);
+//		gui_point_2.SetActive (false);
+//		gui_point_3.SetActive (false);
+//		gui_point_4.SetActive (false);
+	}
+
 }
