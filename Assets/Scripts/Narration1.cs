@@ -30,7 +30,5 @@ public class Narration1 : MonoBehaviour {
 
 			audioSource.Play ();
 		}
-
-		// this.GetComponent<AudioSource>().Play();
 	}
 }

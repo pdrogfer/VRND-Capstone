@@ -10,6 +10,7 @@ public class GameLogic : MonoBehaviour {
 	public GameObject waypoint_start, waypoint_1, waypoint_2, waypoint_3, waypoint_4;
 	public GameObject fence;
 	public GameObject pines_small_and_well;
+	public GameObject pines_big;
 
 	private AudioSource windAudio;
 
@@ -25,9 +26,9 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
+		showPinesBig (false);
 
-		hideAllGuiPanels ();
-		gui_start.SetActive (true);
+		// gui_start.SetActive (true);
 	}
 	
 	// Update is called once per frame
@@ -51,8 +52,6 @@ public class GameLogic : MonoBehaviour {
 
 	public void gotoStation1() {
 
-		gui_start.SetActive (false);
-
 		// Move the player to position 1.
 		iTween.MoveTo(player,
 			iTween.Hash(
@@ -64,9 +63,7 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
-
-		hideAllGuiPanels ();
-		gui_point_1.SetActive (true);
+		showPinesBig (false);
 	}
 
 	public void gotoStation2() {
@@ -82,6 +79,7 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (true);
 		showPinesSmallAndWell (false);
+		showPinesBig (false);
 
 		hideAllGuiPanels ();
 		gui_point_2.SetActive (true);
@@ -100,9 +98,7 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (true);
-
-		hideAllGuiPanels ();
-		gui_point_3.SetActive (true);
+		showPinesBig (false);
 	}
 
 	public void gotoStation4() {
@@ -118,24 +114,22 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
-
-		hideAllGuiPanels ();
-		gui_point_4.SetActive (true);
+		showPinesBig (true);
 	}
 
-	public void controlNarration1() {
-
-		AudioSource narration = GetComponent<AudioSource> ();
-
-		if(GetComponent<AudioSource> ().isPlaying) {
-
-			GetComponent<AudioSource> ().Stop ();
-		}
-		else {
-
-			GetComponent<AudioSource> ().Play ();
-		}
-	}
+//	public void controlNarration1() {
+//
+//		AudioSource narration = GetComponent<AudioSource> ();
+//
+//		if(GetComponent<AudioSource> ().isPlaying) {
+//
+//			GetComponent<AudioSource> ().Stop ();
+//		}
+//		else {
+//
+//			GetComponent<AudioSource> ().Play ();
+//		}
+//	}
 
 	private void showFence(bool visibility) {
 
@@ -145,6 +139,11 @@ public class GameLogic : MonoBehaviour {
 	private void showPinesSmallAndWell(bool visibility) {
 
 		pines_small_and_well.SetActive (visibility);
+	}
+
+	private void showPinesBig(bool visibility) {
+
+		pines_big.SetActive (visibility);
 	}
 
 	private void hideAllGuiPanels() {
