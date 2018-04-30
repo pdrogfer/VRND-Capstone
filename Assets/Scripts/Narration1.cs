@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Narration1 : MonoBehaviour {
 
+	public GameObject video_player;
 	public AudioClip narrationAudio;
-
 	private AudioSource audioSource;
 
 	// Use this for initialization
@@ -17,7 +17,7 @@ public class Narration1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	public void controlNarration1() {
@@ -25,10 +25,25 @@ public class Narration1 : MonoBehaviour {
 		if(audioSource.isPlaying) {
 
 			audioSource.Stop ();
+
+			showVideoPlayer (false);
 		}
 		else {
 
 			audioSource.Play ();
+
+			showVideoPlayer (true);
+		}
+	}
+
+	private void showVideoPlayer(bool play) {
+
+		if (play) {
+
+			video_player.SetActive (true);
+		} else {
+
+			video_player.SetActive (false);
 		}
 	}
 }

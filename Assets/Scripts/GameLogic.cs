@@ -28,7 +28,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
-		showVideoPlayer (false);
+//		showVideoPlayer (false);
 
 		// gui_start.SetActive (true);
 	}
@@ -66,7 +66,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
-		showVideoPlayer (true);
+//		showVideoPlayer (true);
 	}
 
 	public void gotoStation2() {
@@ -83,7 +83,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (true);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
-		showVideoPlayer (false);
+//		showVideoPlayer (false);
 
 		hideAllGuiPanels ();
 		gui_point_2.SetActive (true);
@@ -150,17 +150,17 @@ public class GameLogic : MonoBehaviour {
 		pines_big.SetActive (visibility);
 	}
 
-	private void showVideoPlayer(bool play) {
-
-		if (play) {
-
-			video_player.SetActive (true);
-
-		} else {
-
-			video_player.SetActive (false);
-		}
-	}
+//	private void showVideoPlayer(bool play) {
+//
+//		if (play) {
+//
+//			video_player.SetActive (true);
+//
+//		} else {
+//
+//			video_player.SetActive (false);
+//		}
+//	}
 
 	private void hideAllGuiPanels() {
 

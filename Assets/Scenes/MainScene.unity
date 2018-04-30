@@ -3660,6 +3660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ca5754479d14ada98d6d51aa12b87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video_player: {fileID: 1838773065}
   narrationAudio: {fileID: 8300000, guid: d0a351bfabf6a48178b337ede3d09326, type: 3}
 --- !u!4 &271678935
 Transform:
@@ -3668,7 +3669,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 271678933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.052349, y: -0.98016423, z: 55.789062}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22243,6 +22244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ca5754479d14ada98d6d51aa12b87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video_player: {fileID: 0}
   narrationAudio: {fileID: 0}
 --- !u!1 &1612641960
 GameObject:
