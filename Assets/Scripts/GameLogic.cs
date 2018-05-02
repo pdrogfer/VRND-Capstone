@@ -11,6 +11,7 @@ public class GameLogic : MonoBehaviour {
 	public GameObject fence;
 	public GameObject pines_small_and_well;
 	public GameObject pines_big;
+	public GameObject animals;
 	public GameObject video_player;
 
 	// Use this for initialization
@@ -26,6 +27,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (true);
+		showAnimals (false);
 	}
 	
 	// Update is called once per frame
@@ -47,8 +49,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (true);
-
-//		Start ();
+		showAnimals (false);
 	}
 
 	public void gotoStation1() {
@@ -65,6 +66,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
+		showAnimals (false);
 	}
 
 	public void gotoStation2() {
@@ -81,6 +83,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (true);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
+		showAnimals (false);
 	}
 
 	public void gotoStation3() {
@@ -97,6 +100,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (true);
 		showPinesBig (false);
+		showAnimals (true);
 	}
 
 	public void gotoStation4() {
@@ -113,6 +117,7 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (true);
+		showAnimals (false);
 	}
 
 	private void showFence(bool visibility) {
@@ -128,5 +133,10 @@ public class GameLogic : MonoBehaviour {
 	private void showPinesBig(bool visibility) {
 
 		pines_big.SetActive (visibility);
+	}
+
+	private void showAnimals(bool visibility) {
+
+		animals.SetActive (visibility);
 	}
 }
