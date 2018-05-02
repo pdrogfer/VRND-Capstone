@@ -11,9 +11,9 @@ public class GameLogic : MonoBehaviour {
 	public GameObject fence;
 	public GameObject pines_small_and_well;
 	public GameObject pines_big;
+	public GameObject animals;
+	public GameObject birds;
 	public GameObject video_player;
-
-	private AudioSource windAudio;
 
 	// Use this for initialization
 	void Start () {
@@ -27,10 +27,9 @@ public class GameLogic : MonoBehaviour {
 
 		showFence (false);
 		showPinesSmallAndWell (false);
-		showPinesBig (false);
-//		showVideoPlayer (false);
-
-		// gui_start.SetActive (true);
+		showPinesBig (true);
+		showAnimals (false);
+		showBirds (false);
 	}
 	
 	// Update is called once per frame
@@ -49,7 +48,11 @@ public class GameLogic : MonoBehaviour {
 			)
 		);
 
-		Start ();
+		showFence (false);
+		showPinesSmallAndWell (false);
+		showPinesBig (true);
+		showAnimals (false);
+		showBirds (false);
 	}
 
 	public void gotoStation1() {
@@ -66,7 +69,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
-//		showVideoPlayer (true);
+		showAnimals (false);
+		showBirds (true);
 	}
 
 	public void gotoStation2() {
@@ -83,10 +87,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (true);
 		showPinesSmallAndWell (false);
 		showPinesBig (false);
-//		showVideoPlayer (false);
-
-		hideAllGuiPanels ();
-		gui_point_2.SetActive (true);
+		showAnimals (false);
+		showBirds (true);
 	}
 
 	public void gotoStation3() {
@@ -103,6 +105,8 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (true);
 		showPinesBig (false);
+		showAnimals (true);
+		showBirds (false);
 	}
 
 	public void gotoStation4() {
@@ -119,21 +123,9 @@ public class GameLogic : MonoBehaviour {
 		showFence (false);
 		showPinesSmallAndWell (false);
 		showPinesBig (true);
+		showAnimals (false);
+		showBirds (false);
 	}
-
-//	public void controlNarration1() {
-//
-//		AudioSource narration = GetComponent<AudioSource> ();
-//
-//		if(GetComponent<AudioSource> ().isPlaying) {
-//
-//			GetComponent<AudioSource> ().Stop ();
-//		}
-//		else {
-//
-//			GetComponent<AudioSource> ().Play ();
-//		}
-//	}
 
 	private void showFence(bool visibility) {
 
@@ -150,26 +142,13 @@ public class GameLogic : MonoBehaviour {
 		pines_big.SetActive (visibility);
 	}
 
-//	private void showVideoPlayer(bool play) {
-//
-//		if (play) {
-//
-//			video_player.SetActive (true);
-//
-//		} else {
-//
-//			video_player.SetActive (false);
-//		}
-//	}
+	private void showAnimals(bool visibility) {
 
-	private void hideAllGuiPanels() {
-
-//		gui_start.SetActive (false);
-//		gui_restart.SetActive (false);
-//		gui_point_1.SetActive (false);
-//		gui_point_2.SetActive (false);
-//		gui_point_3.SetActive (false);
-//		gui_point_4.SetActive (false);
+		animals.SetActive (visibility);
 	}
 
+	private void showBirds (bool visibility) {
+
+		birds.SetActive (visibility);
+	}
 }
