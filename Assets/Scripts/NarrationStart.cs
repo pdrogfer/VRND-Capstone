@@ -5,7 +5,6 @@ using UnityEngine;
 public class NarrationStart : MonoBehaviour {
 
 	public AudioClip narrationAudio;
-
 	private AudioSource audioSource;
 
 	// Use this for initialization
